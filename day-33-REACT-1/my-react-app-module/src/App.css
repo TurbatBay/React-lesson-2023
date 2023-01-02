@@ -14,14 +14,14 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #fff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .App-link {
@@ -35,4 +35,48 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+img {
+  width: 250px;
+}
+.first-text {
+  color: rgba(28, 134, 187, 0.901);
+  font-weight: 700;
+}
+
+.submitted {
+  display: flex;
+  align-items: center;
+
+}
+.submitted img {
+  border-radius: 50%;
+  width: 50px;
+}
+.submitted p {
+  color: rgba(179, 169, 169 , 90%);
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.rest-card {
+  margin-left: 30px;
+  text-align: left;
+}
+.rest-card img {
+  width: 30px;
+  height: 30px;
+}
+
+.up {
+  display: flex;
+  align-items: center;
+  
+}
+.up img {
+  filter: sepia(100%);;
 }
