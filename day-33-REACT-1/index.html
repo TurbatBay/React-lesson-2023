@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React-day-01</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <h1>Day - 33 - ReactJS Introduction</h1>
+
+    <div id="root"></div>
+    <div id="image"></div>
+    <div id="para"></div>
+    <div id="select"></div>
+    <div id="form"></div>
+    <script type="text/babel">
+
+        //h1
+        function Hello() {
+            return <h1> Hello World </h1>
+
+        }
+
+        ReactDOM.render(<Hello />, document.getElementById("root"))
+
+
+
+        //zurag
+        function Pic() {
+            return <img src="https://images.ctfassets.net/3s5io6mnxfqz/wfAz3zUBbrcf1eSMLZi8u/c03ac28c778813bd72373644ee8b8b02/AdobeStock_364059453.jpeg" alt="" />
+
+        }
+
+        ReactDOM.render(<Pic />, document.getElementById("image"))
+
+        //paragraph
+        function Para() {
+            return <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, iure? Distinctio doloremque, ratione iure consequuntur minus architecto reiciendis quaerat illum aliquam culpa, quas velit omnis quis ipsum corrupti dolor eum. </p>
+
+        }
+
+        ReactDOM.render(<Para />, document.getElementById("para"))
+
+        //selector
+
+        function Selector() {
+            return <div><label for="">choose my card</label>
+
+                <select name="cars" id="cars">
+                    <option value="v">volvo</option>
+                    <option value="saab">saab</option>
+                    <option value="test">tesla</option>
+                </select>
+            </div>
+        }
+
+        ReactDOM.render(<Selector />, document.getElementById("select"))
+
+
+        //input
+
+        function Input() {
+            return <form action=""><input type="text"/>
+            <label>firstname:</label></form>
+        }
+
+        ReactDOM.render(<Input/>, document.getElementById("form"))
+
+
+
+    </script>
+
+
+
+    <script src="./js/main.js"></script>
+    <script crossorigin="" src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin="" src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+</body>
+
+</html>
