@@ -23,7 +23,7 @@ function App() {
   })
 //classaar hiih gj bn
   const productList2 = products.map((product) => {
-      return <ProductFunc 
+      return <Product
       id ={product.id}
       title = {product.title}
       description = {product.description}
