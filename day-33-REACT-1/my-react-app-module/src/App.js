@@ -1,89 +1,52 @@
-import logo from './pngwing.com.png';
-import zurag from './300x300-03.jpeg'
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+import Product from './Product'
+import Product2 from './Product2';
+import ProductFunc from './ProductFunc';
+import products from './Seed';
+
 
 function App() {
+
+   const productList = products.map((product) => {
+        console.log(product)
+        return <ProductFunc 
+        id ={product.id}
+        title = {product.title}
+        description = {product.description}
+        url = {product.url}
+        votes = {product.votes}
+        submitterAvatarUrl = {product.submitterAvatarUrl}
+        productImageUrl= {product.productImageUrl}
+        />
+  })
+//classaar hiih gj bn
+  const productList2 = products.map((product) => {
+      return <ProductFunc 
+      id ={product.id}
+      title = {product.title}
+      description = {product.description}
+      url = {product.url}
+      votes = {product.votes}
+      submitterAvatarUrl = {product.submitterAvatarUrl}
+      productImageUrl= {product.productImageUrl}
+      />
+  })
+
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Popular Product</h1>
-        <hr></hr>
+        <div>
+          <h3>Popular Products</h3>
+          <hr />
+          {productList}
 
-
-
-
-        <div class="card">
-          <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"></img>
-          <div class="rest-card">
-            <div class="up">
-              <img src={logo}></img>
-              <p>55</p>
-            </div>
-            
-            <p class="first-text">Haught or Naught</p>
-            <p>High-minded or absent-minded? You decide</p>
-            <div class='submitted'>
-              <p>Submitted by:</p>
-              <img src={zurag}></img>
-            </div>
-          </div>
         </div>
-        <div class="card">
-          <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"></img>
-          <div class="rest-card">
-            <div class="up">
-              <img src={logo}></img>
-              <p>55</p>
-            </div>
-            
-            <p class="first-text">Haught or Naught</p>
-            <p>High-minded or absent-minded? You decide</p>
-            <div class='submitted'>
-              <p>Submitted by:</p>
-              <img src={zurag}></img>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"></img>
-          <div class="rest-card">
-            <div class="up">
-              <img src={logo}></img>
-              <p>55</p>
-            </div>
-            
-            <p class="first-text">Haught or Naught</p>
-            <p>High-minded or absent-minded? You decide</p>
-            <div class='submitted'>
-              <p>Submitted by:</p>
-              <img src={zurag}></img>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"></img>
-          <div class="rest-card">
-            <div class="up">
-              <img src={logo}></img>
-              <p>55</p>
-            </div>
-            
-            <p class="first-text">Haught or Naught</p>
-            <p>High-minded or absent-minded? You decide</p>
-            <div class='submitted'>
-              <p>Submitted by:</p>
-              <img src={zurag}></img>
-            </div>
-          </div>
-        </div>
-
-
-
-
 
       </header>
     </div>
-  );
-}
+  )};
+
 
 export default App;

@@ -80,3 +80,40 @@ img {
 .up img {
   filter: sepia(100%);;
 }
+
+
+.profile {
+  width: 60px;
+  height: 60px;
+  border-radius: 200px;
+}
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid blue;
+  gap: 80px;
+}
+
+.id-p {
+  text-align: left;
+}
+.description p {
+  text-align: left;
+}
+.Submit {
+  display: flex;
+  align-items: center;
+}
+.Submit img {
+  align-self: flex-start;
+}
+.title-p {
+  color: blue;
+  font-weight: 600;
+}
+
+.thumbnail img {
+  width: 500px;
+}
+

@@ -1,5 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
+import { createRoot } from 'react-dom/client';
 
 /*
 Challenge: Starting from scratch, build and render the 
@@ -35,5 +36,6 @@ const page = (
     </div>
     
 )
-
-ReactDOM.render(page, document.getElementById("root"))
+const container = document.getElementById("root")
+const root = createRoot(container);
+root.render(page)

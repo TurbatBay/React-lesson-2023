@@ -1,5 +1,5 @@
 1. Why do we need to `import React from "react"` in our files?
-Because we dont use CDN's anymore and we import it from our DEPENDENCIES i guess locally that's why i guess 
+Because we dont use CDN's anymore and we import it from our DEPENDENCIES i guess locally that's why, i guess 
 
 2. If I were to console.log(page) in index.js, what would show up?
 Objects not the content as shown in index.html webpage
