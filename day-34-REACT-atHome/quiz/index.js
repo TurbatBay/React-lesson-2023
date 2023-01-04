@@ -1,5 +1,5 @@
 import React from "react"
-import ReactDOM from "react-dom"
+import ReactDOM from "react-dom/client"
 
 const page = (
     <div>
@@ -15,4 +15,6 @@ const page = (
     </div>
 )
 
-ReactDOM.render(page, document.getElementById("root"))
+const root = ReactDOM.createRoot(document.getElementById("root"))
+root.render(page)
+console.log(page)
