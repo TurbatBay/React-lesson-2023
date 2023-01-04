@@ -4,38 +4,82 @@
 .App {
   text-align: center;
 }
+* {
+  box-sizing: border-box;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  margin: 0;
+  max-width: 550px;
+  margin: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+
+
+/* DESIGN STARTS HERE */
+
+/* NAVBAR STARTS HERE */
+
+.nav-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  background-color: #21222A;
+  
+}
+.nav-h4 {
+  color: #fff;
+  font-size: 16px;
+  margin-right: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+.logo {
+  display: flex;
+  justify-content: space-between;
+  width: 27%;
+  align-items: center;
+  margin-left: 16px;
+}
+.logo > h3 {
+  color: #61DAFB;
+  font-weight: bold;
+  font-size: 22.25px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* MAIN STARTS HERE */
+
+.main-container {
+  background-color: #282D35;
+  color: #fff;
+  height: 459px;
+  
+}
+.main-h1 {
+  font-size: 39.06px;
+  font-weight: bold;
+  margin-left: 16px;
+  padding-top: 60px;
+}
+
+.main-ul {
+  font-size: 16px;
+  margin-left: 16px;
+  width: 70%;
+  list-style: none;
+
+}
+
+.main-li::before {
+  padding-bottom: 15px;
+  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: #61DAFB; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
+  font-size: 20px;
+
 }
