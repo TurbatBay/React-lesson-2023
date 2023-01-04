@@ -1,12 +1,9 @@
-
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 .App {
   text-align: center;
 }
 * {
   box-sizing: border-box;
-
 }
 
 body {
@@ -14,9 +11,6 @@ body {
   max-width: 550px;
   margin: auto;
 }
-
-
-
 
 /* DESIGN STARTS HERE */
 
@@ -26,8 +20,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #21222A;
-  
+  background-color: #21222a;
 }
 .nav-h4 {
   color: #fff;
@@ -43,19 +36,20 @@ body {
   margin-left: 16px;
 }
 .logo > h3 {
-  color: #61DAFB;
+  color: #61dafb;
   font-weight: bold;
   font-size: 22.25px;
 }
 
-
 /* MAIN STARTS HERE */
 
 .main-container {
-  background-color: #282D35;
+  background-color: #282d35;
   color: #fff;
   height: 459px;
-  
+  background-image: url("../public/Group.png");
+  background-repeat: no-repeat;
+  background-position: 420px;
 }
 .main-h1 {
   font-size: 39.06px;
@@ -68,11 +62,9 @@ body {
   font-size: 16px;
   margin-left: 16px;
   width: 70%;
-
 }
 .main-li::marker {
-  color: #61DAFB;
+  color: #61dafb;
   font-size: 1.6rem;
 }
 /* marker iig surch awlaa  */
-
