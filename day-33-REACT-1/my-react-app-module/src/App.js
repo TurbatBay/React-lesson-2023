@@ -9,6 +9,10 @@ import products from './Seed';
 
 function App() {
 
+  function handleProductUpVote(id) {
+    console.log(id)
+  }
+
    const productList = products.map((product) => {
         console.log(product)
         return <ProductFunc 
@@ -19,6 +23,8 @@ function App() {
         votes = {product.votes}
         submitterAvatarUrl = {product.submitterAvatarUrl}
         productImageUrl= {product.productImageUrl}
+        onVote={handleProductUpVote}
+        stars= {products.stars}
         />
   })
 //classaar hiih gj bn
