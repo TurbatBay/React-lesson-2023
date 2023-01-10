@@ -11,6 +11,8 @@ function generateVoteCount() {
     votes: generateVoteCount(),
     submitterAvatarUrl: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600',
     productImageUrl: 'http://via.placeholder.com/640x360',
+    stars: 2
+    
   },
   {
     id: 2,
@@ -20,6 +22,7 @@ function generateVoteCount() {
     votes: generateVoteCount(),
     submitterAvatarUrl: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=600',
     productImageUrl: 'https://loremflickr.com/640/360',
+    stars: 4
   },
   {
     id: 3,
@@ -29,6 +32,7 @@ function generateVoteCount() {
     votes: generateVoteCount(),
     submitterAvatarUrl: 'https://images.pexels.com/photos/8159657/pexels-photo-8159657.jpeg?auto=compress&cs=tinysrgb&w=600',
     productImageUrl: 'https://placekitten.com/640/360',
+    stars: 5
   },
   {
     id: 4,
@@ -38,6 +42,7 @@ function generateVoteCount() {
     votes: generateVoteCount(),
     submitterAvatarUrl: 'https://images.pexels.com/photos/7562313/pexels-photo-7562313.jpeg?auto=compress&cs=tinysrgb&w=600',
     productImageUrl: 'https://baconmockup.com/640/360',
+    stars: 1
   },
  ];
 
