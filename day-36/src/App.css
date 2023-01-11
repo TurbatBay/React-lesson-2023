@@ -1,0 +1,40 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+
+/* HELP SECTION */
+
+.help-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+}
+
+.help-flex > p {
+  width: 40%;
+}
+.help-rest-flex {
+  display: flex;
+  justify-content: space-between;
+}
+.our-store {
+  display: flex;
+  justify-content: space-between;
+}
+.track-order {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* NAVBAR SECTION */
+
+
+
