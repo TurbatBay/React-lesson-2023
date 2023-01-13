@@ -2,7 +2,12 @@ import Product from "./Product";
 import products from "../data/seed";
 import { useState } from "react";
 export default function ProductList() {
-  
+
+  const [productList, setProductLIst] = useState(products); 
+
+
+
+  console.log("upvoted ")
   function handleProductUpVote(productId) {
     console.log(productId + " was upvoted.");
 
@@ -12,31 +17,22 @@ export default function ProductList() {
       }
     })
     console.log(foundProduct[0].votes)
+    foundProduct[0].votes = foundProduct[0].votes + 1;
 
-
-
-
-
-
-
-
-
-
-
+    console.log(products)
+    const nextProducts = products.map((product) => {
+      if (product.id === productId) {
+        return Object.assign({}, product, {
+          votes: product.votes + 1,
+        });
+      } else {
+        return product;
+      }
+    });
+    console.log(nextProducts)
     
-    // console.log(productsList)
-    // const nextProducts = productsList.map((product) => {
-    //   if (product.id === productId) {
-    //     return Object.assign({}, product, {
-    //       votes: product.votes + 1,
-    //     });
-    //   } else {
-    //     return product;
-    //   }
-    // });
-  
-    // setProductsList(nextProducts)
-    // console.log(nextProducts)
+    setProductLIst(nextProducts)
+   
   }
   const productComponents = products.map((product) => (
     <Product
