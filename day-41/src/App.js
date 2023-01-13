@@ -5,15 +5,17 @@ import Counter from './components/Counter';
 import UpdateArrays from './components/UpdateArrays';
 import List from './components/SpreadArray';
 import UpdatingObjects from './components/UpdatingObjects';
+import Exercises from './components/Exercises';
 
 function App() {
   return (
     <div className="App">
-      <Main/>
-      <Counter/>
-      <UpdateArrays/>
-      <List/>
-      <UpdatingObjects/>
+      <Exercises/>
+      {/* // <Main/>
+      // <Counter/>
+      // <UpdateArrays/>
+      // <List/>
+      // <UpdatingObjects/> */}
     </div>
   );
 }
