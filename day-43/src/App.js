@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Form from "./component/Form"
 import Login from './component/Login';
 import About from './component/About';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Register from './component/Register';
 import Home from './component/Home';
 import Usukhuu from './component/about/usukhuu';
@@ -17,11 +17,11 @@ function App() {
     <div className="App">
       <h1>Day 43-React router</h1>
       <div className='navbar'>
-        <a href='./about'>About</a>
-        <a href='./login'>login</a>
-        <a href='./register'>register</a>
-        <a href='./form'>Form</a>
-        <a href='./'>home</a>
+        <Link to='./about'>About</Link>
+        <Link to='./login'>login</Link>
+        <Link to='./register'>register</Link>
+        <Link to='./form'>Form</Link>
+        <Link to='./'>home</Link>
       </div>
       <Routes>
         <Route path='/about/*' element={<About />}>

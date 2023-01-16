@@ -6,8 +6,8 @@ export default function About (){
     return (
         <div>
             <p>Its about page</p>
-            <a href='./about/khangai'>khangai</a>
-            <a href='./about/usukhuu'>usukhuu</a>
+            <a href='/about/khangai'>khangai</a>
+            <a href='/about/usukhuu'>usukhuu</a>
             <Outlet />
         </div>
     )
