@@ -1,28 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
 import { useState } from 'react';
 
 function App() {
-
-
   const [users, setUsers] = useState([]);
-  
-  function handleRegister (e) {
-    e.preventDefault()
+  const [passwordMatch, setPasswordMatch] = useState(true);
 
-    const user = {
-      firstname: e.target.firstname.value,
-      lastname: e.target.lastname.value,
-      password: e.target.password.value,
-      confirm: e.target.confirm.value,
+  function handleRegister(e) {
+    e.preventDefault();
+    const firstname = e.target.firstname.value;
+    const lastname = e.target.lastname.value;
+    const password = e.target.password.value;
+    const confirm = e.target.confirm.value;
+
+    if (password !== confirm) {
+      setPasswordMatch(false);
+      return;
     }
+    setPasswordMatch(true);
 
-    setUsers(...users, user)
-    console.log(users)
-  } 
-  
-
-
+    const user = { firstname, lastname, password, confirm };
+    setUsers(prevUsers => [...prevUsers, user]);
+  }
 
   return (
     <div className="App">
@@ -30,37 +27,33 @@ function App() {
         <form onSubmit={handleRegister}>
           <label>
             Firstname:
-            <input name='firstname' ></input>
+            <input name="firstname" />
           </label>
           <label>
             Lastname:
-            <input name='lastname'></input>
+            <input name="lastname" />
           </label>
           <label>
             Password:
-            <input name='password' ></input>
+            <input name="password" type="password" />
           </label>
           <label>
             Confirm Password:
-            <input name='confirm' ></input>
+            <input name="confirm" type="password" />
           </label>
-          <label>
-            Register:
-            <button
-              >Button1</button>
-          </label>
+          {!passwordMatch && (
+            <div style={{ color: 'red' }}>Passwords do not match</div>
+          )}
+          <button type="submit">Register</button>
         </form>
-        <h2> User preview</h2>
-
-
-        {users.map(u => {
-          return (
-            <>
-              <div>{u.firstname}</div>
-              <div>{u.lastname}</div>
-            </>
-          )
-        })}
+        <h2> User Preview</h2>
+        <ul>
+          {users.map(user => (
+            <li key={user.firstname}>
+              {user.firstname} {user.lastname}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
