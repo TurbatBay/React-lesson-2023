@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+
+
 export default function Index() {
 
     const aboutPageData = {
@@ -19,7 +21,9 @@ export default function Index() {
                 <Link className="link" to={"/about"} state={aboutPageData}>About page</Link>
                 <Link className="link" to={"/accordian"} >Accordian page</Link>
                 <Link className="link" to={"/home"} state={homePageData}>Home page</Link>
-                <Link className="link" to={"/movies"} state={homePageData}>Movies Page</Link>
+                <Link className="link" to={"/movies"}>Movies Page</Link>
+                <Link className="link" to={"/gallery"} >Image Gallery Page</Link>
+                <Link className="link" to={"/toaster"} >Toaster Page</Link>
             </nav>
         </>
     )

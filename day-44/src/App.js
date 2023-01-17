@@ -9,6 +9,8 @@ import AboutPage from './component/AboutPage';
 import HomePage from './component/HomePage';
 import Movies from './component/Movies';
 import Movie from './component/Movie';
+import GalleryPage from './component/GalleryPage';
+import ToasterPage from './component/ToasterPage';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path='/home' element={<HomePage />} />
         <Route path='/movies' element={<Movies />} />
         <Route path={'/movie/:id'} element={<Movie />} />
+        <Route path={'/gallery'} element={<GalleryPage />} />
+        <Route path={'/toaster'} element={<ToasterPage />} />
       </Routes>
     </div>
   );
