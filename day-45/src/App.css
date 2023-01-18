@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+}
+
+.box1 {
+  border: 2px grey solid;
+  max-width: 600px;
+  margin: auto;
+}
+.box2 {
+  border: 2px grey solid;
+  max-width: 600px;
+  margin: auto;
+}
