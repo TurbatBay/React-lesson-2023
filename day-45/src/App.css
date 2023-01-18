@@ -12,3 +12,14 @@
   max-width: 600px;
   margin: auto;
 }
+.links {
+  margin: 40px;
+}
+h1 {
+  background-color: rebeccapurple;
+  color: white;
+}
+
+.active {
+  background-color: aqua;
+}
