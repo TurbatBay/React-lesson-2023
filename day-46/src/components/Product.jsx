@@ -1,11 +1,8 @@
 import { Rating } from "react-simple-star-rating";
 import products from "../data/seed";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
 
 export default function Product(props) {
-  const [liked, setLiked] = useState(false);
-
   const { id } = useParams();
   let foundProduct = {};
   if (id) {
@@ -20,6 +17,10 @@ export default function Product(props) {
   }
 
   const product = foundProduct;
+
+  const liked = props.wishlist.filter((wish) => wish.id === product.id)[0];
+  console.log(liked);
+
   return (
     <div className="item">
       <div className="image">
@@ -36,9 +37,9 @@ export default function Product(props) {
           <a
             onClick={() => {
               console.log("heart is clicked");
-              setLiked(!liked);
-
-              if (liked) {
+              // setLiked(!liked);
+              //test
+              if (!liked) {
                 const likedProduct = {
                   id: product.id,
                   name: product.title,
@@ -53,9 +54,9 @@ export default function Product(props) {
             }}
           >
             {liked ? (
-              <i className="heart outline icon"></i>
-            ) : (
               <i className="heart icon"></i>
+            ) : (
+              <i className="heart outline icon"></i>
             )}
           </a>
         </div>
