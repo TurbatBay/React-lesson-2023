@@ -5,6 +5,8 @@ import Input from "./components/Input";
 import Button from "./components/Button";
 import { Tooltip } from "react-bootstrap";
 import TopAnime from "./components/TopAnime";
+import Exercises from "./components/Exercises";
+import PascalTriangle from "./components/PascalTriangle";
 function App() {
   const [form, setForm] = useState("");
 
@@ -18,7 +20,11 @@ function App() {
       <Input label="Second" value={form} onChange={handleInput} /> */}
       {/* <Button />
       <Anime /> */}
-      <TopAnime />
+      {/* <TopAnime /> */}
+      {/* <Exercises /> */}
+      <div className="App">
+        <PascalTriangle n={15} />
+      </div>
     </div>
   );
 }
