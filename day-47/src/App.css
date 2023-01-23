@@ -1,0 +1,18 @@
+.container {
+  margin: 100px;
+}
+
+.card-container {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 100px;
+  height: 200px;
+  text-align: center;
+}
+.card-container:hover {
+  background-color: antiquewhite;
+}
+.card-container p {
+  font-size: 20px;
+  font-weight: bold;
+}
