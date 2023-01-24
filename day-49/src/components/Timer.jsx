@@ -28,6 +28,7 @@ export default function Timer({ title, project, elapsed, runningSince }) {
             alignItems: "center",
           }}
         >
+          <h1>{runningTime}</h1>
           <h1>{timer}</h1>
         </Box>
 
