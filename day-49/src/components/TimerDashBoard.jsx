@@ -6,6 +6,7 @@ import Timer from "./Timer";
 import TimerForm from "./TimerFrom";
 export default function TimerDashBoard() {
   const [timers, setTimers] = useState([]);
+  const [runningTime, setRunningTime] = useState(0);
 
   useEffect(() => {
     setTimers(timerData);
@@ -21,6 +22,7 @@ export default function TimerDashBoard() {
               title={data.title}
               elapsed={data.elapsed}
               runningSince={data.runningSince}
+              runningTime={runningTime}
             />
           );
         })}
