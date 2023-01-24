@@ -1,7 +1,19 @@
 import { Button, CardContent } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
+import { useState } from "react";
 export default function TimerForm({ title, project, elapsed }) {
+  const [formData, setFormData] = useState();
+  console.log(formData);
+  function handleChange(event) {
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        [event.target.name]: event.target.value,
+      };
+    });
+  }
+
   return (
     <div>
       <h1>Timer Form</h1>
@@ -16,15 +28,19 @@ export default function TimerForm({ title, project, elapsed }) {
                   label={title}
                   variant={"outlined"}
                   fullWidth={true}
+                  name={title}
+                  onChange={handleChange}
                 ></TextField>
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   type={"text"}
-                  placeholder={title}
-                  label={title}
+                  placeholder={project}
+                  label={project}
                   variant={"outlined"}
                   fullWidth={true}
+                  name={project}
+                  onChange={handleChange}
                 ></TextField>
               </Grid>
               <Grid item xs={12}>
