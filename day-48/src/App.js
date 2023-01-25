@@ -22,9 +22,9 @@ function App() {
       <Anime /> */}
       {/* <TopAnime /> */}
       {/* <Exercises /> */}
-      <div className="App">
+      {/* <div className="App">
         <PascalTriangle n={15} />
-      </div>
+      </div> */}
     </div>
   );
 }
