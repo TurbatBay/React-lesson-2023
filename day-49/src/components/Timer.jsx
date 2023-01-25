@@ -1,20 +1,47 @@
-import React from "react";
 import Container from "@mui/material/Container";
-import { Card, Typography } from "@mui/material";
+import Card from "@mui/material/Card";
+import { Box, Typography } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
+import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import TimerActionButton from "./TimerActionButton";
-import Box from "@mui/material/Box";
-import Edit from "@mui/icons-material/Edit";
-import { useState } from "react";
 import { renderElapsedString } from "./Helpers";
-export default function Timer({ title, project, elapsed, runningSince }) {
-  const [timerIsRunning, setTimerIsRunning] = useState(false);
+
+export default function Timer({
+  id,
+  title,
+  project,
+  elapsed,
+  runningSince,
+  onTrashClick,
+  onStartClick,
+  onStopClick,
+  onEditClick,
+}) {
   const timer = renderElapsedString(elapsed, runningSince);
-  console.log(timer);
+
+  function handleEditClick() {
+    onEditClick(id);
+  }
+
+  function handleStopClick() {
+    onStopClick(id);
+  }
+
+  function handleStartClick() {
+    onStartClick(id);
+  }
+
+  function handleDelete() {
+    onTrashClick(id);
+  }
   return (
     <Container maxWidth="sm">
-      <Card sx={{ maxWidth: 345 }}>
+      <Card
+        sx={{
+          maxWidth: 345,
+          marginBottom: 5,
+        }}
+      >
         <Typography sx={{ fontSize: 28 }} color="text.secondary">
           {title}
         </Typography>
@@ -27,10 +54,16 @@ export default function Timer({ title, project, elapsed, runningSince }) {
             justifyContent: "center",
             alignItems: "center",
           }}
+        ></Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
         >
           <h1>{timer}</h1>
         </Box>
-
         <Box
           sx={{
             display: "flex",
@@ -39,17 +72,13 @@ export default function Timer({ title, project, elapsed, runningSince }) {
             marginBottom: 2,
           }}
         >
-          <DeleteIcon />
-          <EditIcon />
+          <DeleteIcon onClick={handleDelete} />
+          <ModeEditIcon onClick={handleEditClick} />
         </Box>
         <TimerActionButton
-          isTimerRunning={timerIsRunning}
-          onStartClick={() => {
-            setTimerIsRunning(true);
-          }}
-          onStopClick={() => {
-            setTimerIsRunning(false);
-          }}
+          isTimerRunning={runningSince}
+          onStartClick={handleStartClick}
+          onStopClick={handleStopClick}
         />
       </Card>
     </Container>
