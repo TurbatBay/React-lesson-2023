@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function InputForm(setIsLoading, isLoading, setData) {
+export default function InputForm({ setIsLoading, isLoading, setData }) {
   const POST_DATA_URL = "http://localhost:8080/data";
   const [name, setName] = useState("");
   const [major, setMajor] = useState("");

@@ -38,7 +38,7 @@ app.post("/data", (request, response) => {
 app.delete("/data", (request, response) => {
   console.log(request.body);
   const newData = data.filter((d) => d.id !== request.body.id);
-  data = [...data, newData];
+  data = newData;
   console.log(data);
   response.json(data);
 });
