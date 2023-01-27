@@ -24,7 +24,6 @@ export default function UpdateForm({ setCurrentData, currentData, setData }) {
   }, []);
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(e);
     console.log(e.target.major.value);
     console.log(e.target.name.value);
     const sendData = {
