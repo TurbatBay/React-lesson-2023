@@ -27,7 +27,7 @@ export default function Navbar() {
       >
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
-            Clipped drawer
+            Admin Panel
           </Typography>
         </Toolbar>
       </AppBar>

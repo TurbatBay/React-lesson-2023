@@ -38,7 +38,9 @@ export default function UsersTable() {
   ];
   return (
     <div style={{ height: 400, width: "100%" }}>
-      <h5>BreadCrumbs here</h5>
+      <Typography variant="h5" color="white">
+        BreadCrumbs here
+      </Typography>
       <Typography
         variant="h4"
         color="initial"
