@@ -1,9 +1,13 @@
-import UsersTable from "../components/UsersTable";
+import * as React from "react";
+import { styled } from "@mui/material/styles";
+import Paper from "@mui/material/Paper";
+import Navbar from "../components/Navbar";
+import Topbar from "../scenes/global/Topbar";
+
 export default function Users() {
   return (
-    <div>
-      <h1>Users page</h1>
-      <UsersTable />
-    </div>
+    <>
+      <Topbar />
+    </>
   );
 }

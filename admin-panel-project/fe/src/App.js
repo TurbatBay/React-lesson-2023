@@ -1,28 +1,37 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Routes, Route, Router } from "react-router-dom";
+import { ColorModeContext, useMode } from "./theme";
+import { ThemeProvider } from "@mui/material";
+import { useState } from "react";
 import Users from "./pages/Users";
 import Product from "./pages/Product";
-import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import HomePage from "./pages/HomePage";
+import Topbar from "./scenes/global/Topbar";
+import Sidebars from "./scenes/global/Sidebars";
 function App() {
+  const [theme, colorMode] = useMode();
+  const [isSidebar, setIsSidebar] = useState(true);
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <Container maxWidth="xxl">
-        <div className="App">
-          <h1>Admin Panel project</h1>
-          <ResponsiveAppBar />
-          <Routes>
-            <Route path="/users" element={<Users />} />
-            <Route path="/product" element={<Product />} />
-          </Routes>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className="app">
+          <Topbar setIsSidebar={setIsSidebar} />
+          <main className="content">
+            <Sidebars isSidebar={isSidebar} />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/users" element={<Users />} />
+              <Route path="/product" element={<Product />} />
+            </Routes>
+          </main>
         </div>
-      </Container>
-    </React.Fragment>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 }
 
