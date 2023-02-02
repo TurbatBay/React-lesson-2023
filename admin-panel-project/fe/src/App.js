@@ -1,4 +1,3 @@
-import "./App.css";
 import { Routes, Route, Router } from "react-router-dom";
 import { ColorModeContext, useMode } from "./theme";
 import { ThemeProvider } from "@mui/material";
@@ -7,8 +6,6 @@ import Users from "./pages/Users";
 import Product from "./pages/Product";
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 import HomePage from "./pages/HomePage";
 import Topbar from "./scenes/global/Topbar";
 import Sidebars from "./scenes/global/Sidebars";
