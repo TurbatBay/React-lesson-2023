@@ -24,7 +24,7 @@ export default function ClippedDrawer() {
     >
       <Toolbar>
         <Typography variant="h6" noWrap component="div">
-          React Material Admin Full
+          Admin
         </Typography>
       </Toolbar>
     </AppBar>
