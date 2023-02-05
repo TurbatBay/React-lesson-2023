@@ -24,6 +24,8 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import PieChartIcon from "@mui/icons-material/PieChart";
 
 const drawerWidth = 240;
 
@@ -78,11 +80,11 @@ export default function ClippedDrawer() {
           </List>
           <Divider />
           <List>
-            {["All mail", "Trash", "Spam"].map((text, index) => (
+            {["Chart", "Calendar"].map((text, index) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton>
                   <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                    {index % 2 === 0 ? <PieChartIcon /> : <CalendarMonthIcon />}
                   </ListItemIcon>
                   <ListItemText primary={text} />
                 </ListItemButton>

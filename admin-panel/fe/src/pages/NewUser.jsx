@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Home from "./Home";
+import BreadCrumbs from "../components/BreadCrumbs";
 export default function NewUser({
   isUpdate,
   editUser,
@@ -129,6 +130,7 @@ export default function NewUser({
       <Box sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
         <form onSubmit={handleSubmit}>
+          <BreadCrumbs sx={{ flexGrow: 1, p: 30 }} />
           <Stack spacing={2} sx={{}}>
             <Typography variant="h5" sx={{ color: "#9e9e9e" }}>
               Add Users
@@ -174,11 +176,8 @@ export default function NewUser({
                 />
               </RadioGroup>
             </div>
-            <div>
-              <Typography sx={{ color: "#9e9e9e" }}>Disabled</Typography>
-              <Checkbox onChange={handleCheckbox} />
-            </div>
-            <Typography sx={{ color: "#9e9e9e" }}>Avatar</Typography>
+
+            <Typography sx={{ color: "#9e9e9e" }}>Profile image</Typography>
             <Stack direction="row" alignItems="center" spacing={2}>
               <Button variant="contained" component="label">
                 Upload

@@ -186,11 +186,7 @@ export default function Appbar() {
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 10 }}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/products" element={<Products />} />
-        </Routes>
+        test compo main
       </Box>
     </Box>
   );
