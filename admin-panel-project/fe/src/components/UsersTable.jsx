@@ -2,6 +2,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Divider, Grid } from "@mui/material";
+import React from "react";
 export default function UsersTable() {
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
@@ -37,10 +38,11 @@ export default function UsersTable() {
     { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
   ];
   return (
-    <div style={{ height: 400, width: "100%" }}>
-      <Typography variant="h5" color="white">
-        BreadCrumbs here
-      </Typography>
+    <div
+      style={{ height: 400, width: "100%" }}
+      className="users-table-container"
+    >
+      <Typography variant="h5" color="white"></Typography>
       <Typography
         variant="h4"
         color="initial"

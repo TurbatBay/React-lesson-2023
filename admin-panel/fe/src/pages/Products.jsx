@@ -21,6 +21,9 @@ import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/joy/Stack";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import BreadCrumbs from "../components/BreadCrumbs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const productsData = [
   {
     id: 1,
@@ -55,6 +58,16 @@ export default function Products({
   }, []);
 
   async function handleDelete(userId) {
+    toast.success("User deleted", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
     const options = {
       method: "DELETE",
       headers: {
@@ -106,6 +119,8 @@ export default function Products({
       <Box sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
         <Stack direction="row" justifyContent="space-between">
+          <BreadCrumbs sx={{ flexGrow: 1, p: 30 }} />
+
           <div>
             <Typography
               variant="h6"
@@ -166,10 +181,9 @@ export default function Products({
                 <TableCell>
                   <Stack direction="row" spacing={0.5}>
                     <strong>Price</strong>
-                    <ArrowUpwardIcon></ArrowUpwardIcon>
                   </Stack>
                 </TableCell>
-                <TableCell sx={{ fontWeight: "bold" }}>Rating</TableCell>
+
                 <TableCell sx={{ fontWeight: "bold" }} align="center">
                   Actions
                 </TableCell>
@@ -189,24 +203,13 @@ export default function Products({
                   <TableCell component="th" scope="row">
                     {parametr.id % 100}
                   </TableCell>
-                  <TableCell>Not Yet</TableCell>
+                  <TableCell>url</TableCell>
                   <TableCell>{parametr.title}</TableCell>
                   <TableCell>{parametr.subtitle}</TableCell>
                   <TableCell>
                     {`${parametr.price}` && `$${parametr.price}`}
                   </TableCell>
-                  <TableCell>
-                    {`${parametr.rating}` && (
-                      <Stack direction="row">
-                        <Typography>{parametr.rating}</Typography>
-                        <img
-                          src="https://freesvg.org/img/1289679474.png"
-                          alt=""
-                          style={{ width: 16, height: 20, marginLeft: "4px" }}
-                        />
-                      </Stack>
-                    )}
-                  </TableCell>
+
                   <TableCell sx={{ padding: 0 }}>
                     <Stack direction="row" spacing={1}>
                       <Link
@@ -220,6 +223,18 @@ export default function Products({
                         >
                           Edit
                         </Button>
+                        <ToastContainer
+                          position="top-right"
+                          autoClose={5000}
+                          hideProgressBar={false}
+                          newestOnTop={false}
+                          closeOnClick
+                          rtl={false}
+                          pauseOnFocusLoss
+                          draggable
+                          pauseOnHover
+                          theme="light"
+                        />
                       </Link>
 
                       <Button
@@ -230,6 +245,18 @@ export default function Products({
                       >
                         Delete
                       </Button>
+                      <ToastContainer
+                        position="top-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="light"
+                      />
                     </Stack>
                   </TableCell>
                 </TableRow>

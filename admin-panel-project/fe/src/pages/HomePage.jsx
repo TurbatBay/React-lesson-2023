@@ -1,15 +1,8 @@
 import React from "react";
-import UsersTable from "../components/UsersTable";
-import Typography from "@mui/material/Typography";
+import Home from "../components/Home";
+
 const HomePage = () => {
-  return (
-    <div>
-      <Typography variant="h2" color="white">
-        Homepage
-      </Typography>
-      <UsersTable />
-    </div>
-  );
+  return <>Homepage</>;
 };
 
 export default HomePage;
