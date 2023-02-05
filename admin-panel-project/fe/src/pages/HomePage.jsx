@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <div>
       <Typography variant="h2" color="white">
-        Homepage
+        Homepage testing branch
       </Typography>
       <UsersTable />
     </div>
