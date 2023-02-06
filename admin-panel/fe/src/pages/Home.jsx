@@ -39,7 +39,7 @@ export default function ClippedDrawer() {
       >
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography variant="h6" noWrap component="div">
-            React Material Admin Full
+            ADMIN PANEL
           </Typography>
           <IconButton sx={{ p: 0 }}>
             <Avatar alt="Remy Sharp" src="" />

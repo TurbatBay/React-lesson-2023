@@ -15,6 +15,8 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Home from "./Home";
 import BreadCrumbs from "../components/BreadCrumbs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function NewUser({
   isUpdate,
   editUser,
@@ -25,6 +27,16 @@ export default function NewUser({
   const URL = "http://localhost:8080/new";
 
   async function handleSubmit(e) {
+    toast.success("User added", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
     e.preventDefault();
     if (!isUpdate) {
       console.log(currentUser);
@@ -220,6 +232,18 @@ export default function NewUser({
             </Stack>
           </Stack>
         </form>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </Box>
     </Box>
   );
