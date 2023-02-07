@@ -1,42 +1,20 @@
 import { useEffect, useState } from "react";
-import { newTimer } from "../components/Helpers";
+import { newTimer } from "./Helpers";
 import EditableTimerList from "./EditableTimerList";
 import ToggleableTimerForm from "./ToggleableTimerForm.jsx";
-
+import projects from "../data/data.js";
+import { TimerContext } from "../context/TimerContext";
+import { useContext } from "react";
 export default function TimersDashboard() {
-  const [timers, setTimers] = useState({ timers: [] });
-
   const URL = "http://localhost:8080/timers";
 
-  useEffect(() => {
-    fetchTimersData();
-  }, []);
+  const [timers, setTimers] = useContext(TimerContext);
 
-  //FETCH ALL DATA
   async function fetchTimersData() {
     const FETCHED_DATA = await fetch(URL);
     const FETCHED_JSON = await FETCHED_DATA.json();
     console.log(FETCHED_JSON);
     setTimers({ timers: FETCHED_JSON.data });
-  }
-  //DELETE TIMER
-  async function deleteTimer(timerId) {
-    console.log("DELETE TIMER");
-    const options = {
-      method: "DELETE",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        timerId: timerId,
-      }),
-    };
-    const FETCHED_DATA = await fetch(URL, options);
-    const FETCHED_JSON = await FETCHED_DATA.json();
-
-    setTimers({
-      timers: FETCHED_JSON.data,
-    });
   }
 
   function handleCreateFormSubmit(timer) {
@@ -58,22 +36,12 @@ export default function TimersDashboard() {
   function handleStopClick(timerId) {
     stopTimer(timerId);
   }
-  //CREATE NEW TIMER
-  async function createTimer(timer) {
+
+  function createTimer(timer) {
     const t = newTimer(timer);
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(t),
-    };
-    const FETCHED_DATA = await fetch(URL, options);
-    const FETCHED_JSON = await FETCHED_DATA.json();
-    console.log(FETCHED_JSON);
-    setTimers({ timers: FETCHED_JSON.data });
+    setTimers({ timers: timers.timers.concat(t) });
   }
-  //START TIMER
+
   function startTimer(timerId) {
     const now = Date.now();
     setTimers({
@@ -89,7 +57,6 @@ export default function TimersDashboard() {
     });
   }
 
-  //STOP TIMER
   function stopTimer(timerId) {
     const now = Date.now();
 
@@ -104,30 +71,22 @@ export default function TimersDashboard() {
       }),
     });
   }
-  //UPDATE TIMER
-  async function updateTimer(attrs) {
-    console.log("attrs is " + attrs);
-    const options = {
-      method: "PUT",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        attrs: attrs,
-      }),
-    };
 
-    const FETCHED_DATA = await fetch(URL, options);
-    const FETCHED_JSON = await FETCHED_DATA.json();
-    console.log(FETCHED_JSON);
+  function updateTimer(attrs) {
     setTimers({
-      timers: FETCHED_JSON.data.map((timer) => {
+      timers: timers.timers.map((timer) => {
         if (timer.id === attrs.id) {
           timer.title = attrs.title;
           timer.project = attrs.project;
         }
         return timer;
       }),
+    });
+  }
+
+  function deleteTimer(timerId) {
+    setTimers({
+      timers: timers.timers.filter((t) => t.id !== timerId),
     });
   }
 
