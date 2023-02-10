@@ -3,10 +3,10 @@ import { createContext, useContext } from "react";
 import List from "./components/List";
 import { ImageContext } from "./context/imageContext";
 function App() {
-  const [isLarge, setIsLarge, imageSize] = useContext(ImageContext);
+  // const [isLarge, setIsLarge, imageSize] = useContext(ImageContext);
   return (
     <div className="App">
-      <label>Use large Images</label>
+      {/* <label>Use large Images</label>
       <input
         type="checkbox"
         checked={isLarge}
@@ -17,7 +17,7 @@ function App() {
       />
 
       <hr />
-      <List imageSize={imageSize} />
+      <List imageSize={imageSize} /> */}
     </div>
   );
 }
