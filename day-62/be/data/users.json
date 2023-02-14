@@ -1,0 +1,1 @@
+[{"firstname":"testing1","lastname":"asd","email":"asd","password":"asd","address":"asd","role":1},{"firstname":"123","lastname":"gfdg","email":"dfg","password":"dfg","address":"fdg","role":2},{"firstname":"123","lastname":"gfdg","email":"dfg","password":"dfg","address":"fdg","role":{"id":2,"name":"User"}}]
