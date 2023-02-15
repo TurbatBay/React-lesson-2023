@@ -1,1 +1,10 @@
-[{"firstname":"testing1","lastname":"asd","email":"asd","password":"asd","address":"asd","role":1},{"firstname":"123","lastname":"gfdg","email":"turu@gmail.com","password":"1234","address":"fdg","role":2},{"firstname":"123","lastname":"gfdg","email":"dfg","password":"dfg","address":"fdg","role":{"id":2,"name":"User"}},{"firstname":"po1","lastname":"123","email":"bat9901@gmail.com","password":"123123","address":"asdasd","role":2},{"firstname":"po1","lastname":"123","email":"bat9901@gmail.com","password":"123123","address":"asdasd","role":{"id":2,"name":"User"}},{"firstname":"turu","lastname":"uru","email":"kyu@gmail.com","password":"123","address":"tgg","role":1},{"firstname":"turu","lastname":"uru","email":"kyu@gmail.com","password":"$2b$10$KDmsZnWR/QNIiagHfsE0uOqn6O4N47VDzUajTE5MNtZuXs46yl2iO","address":"tgg","role":{"id":1,"name":"Admin"}},{"firstname":"uyf","lastname":"hfg","email":"hgf","password":"123","address":"gg","role":1},{"firstname":"uyf","lastname":"hfg","email":"hgf","password":"$2b$10$BWdFIsVvkfeQ1HuLG5LHPu2IXi9IQ1aCiiPMHinGq.f7RaS9Ttwae","address":"gg","role":{"id":1,"name":"Admin"}}]
+[
+  {
+    "firstname": "Turbat",
+    "lastname": "Bay",
+    "email": "turu@gmail.com",
+    "password": "$2b$10$LglGba7MMs41CAzciBQ8ie.J9VDiM6Bfqihzmr6nlNh6O//4I2wQa",
+    "address": "BZD",
+    "role": { "id": 1, "name": "Admin" }
+  }
+]

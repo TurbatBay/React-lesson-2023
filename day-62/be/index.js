@@ -161,21 +161,39 @@ app.post('/login', (request, response) => {
       const foundUserObj = foundUser[0]
       console.log(foundUserObj)
 
-      if (foundUserObj.password !== body.password) {
-        response.json({
-          status: 'username or password do not match!!',
-          data: [],
-        })
-      } else {
-        response.json({
-          status: 'success',
-          data: {
-            email: foundUserObj.email,
-            firstName: foundUserObj.firstName,
-            lastName: foundUserObj.lastName,
-          },
-        })
-      }
+      const plainPassword = body.password
+      const savedPassword = foundUserObj.password
+
+      bcrypt.compare(
+        plainPassword,
+        savedPassword,
+        (compareError, compareResult) => {
+          if (compareError) {
+            response.json({
+              status: 'User name or password do not match',
+              data: [],
+            })
+          }
+
+          if (compareResult) {
+            console.log('it matches')
+            response.json({
+              status: 'success',
+              data: {
+                email: foundUserObj.email,
+                firstName: foundUserObj.firstName,
+                lastName: foundUserObj.lastName,
+              },
+            })
+          } else {
+            console.log('Invalid password')
+            response.json({
+              status: 'username or password do not match!!',
+              data: [],
+            })
+          }
+        }
+      )
     }
   })
 })
