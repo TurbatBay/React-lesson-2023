@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 const Categories = () => {
   const [categories, setCategories] = useState([])
+  const URL = 'http://localhost:8080/category'
 
   useEffect(() => {
     fetchCategories()
