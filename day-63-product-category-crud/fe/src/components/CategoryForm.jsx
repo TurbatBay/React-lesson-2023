@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom'
 
 export default function CategoryForm() {
   const URL = 'http://localhost:8080/category'
-
   const navigate = useNavigate()
+
   async function handleCategorySubmit(e) {
     e.preventDefault()
     const options = {
@@ -16,6 +16,7 @@ export default function CategoryForm() {
       }),
     }
 
+    console.log(options)
     const FETCHED_DATA = await fetch(URL, options)
     const FETCHED_JSON = await FETCHED_DATA.json()
     console.log(FETCHED_JSON)
@@ -25,11 +26,11 @@ export default function CategoryForm() {
   }
   return (
     <div>
-      <h1>Catergory Form</h1>
+      <h1>Category Form</h1>
       <form onSubmit={handleCategorySubmit}>
         <input name='catName' type='text' />
         <br />
-        <button>Save</button>
+        <button type='submit'>Save</button>
       </form>
     </div>
   )
