@@ -24,12 +24,21 @@ app
     })
 
     const categoryDataObj = JSON.parse(categoryData)
-    const newCategory = {
-      id: Date.now().toString(),
-      name: body.catName,
-    }
 
-    categoryDataObj.push(newCategory)
+    if (isEdit) {
+      categoryDataObj.map((category) => {
+        if (category.id === body.categoryId) {
+          category.name = body.categoryName
+        }
+        return category
+      })
+    } else {
+      const newCategory = {
+        id: Date.now().toString(),
+        name: body.catName,
+      }
+      categoryDataObj.push(newCategory)
+    }
 
     const writeCategoryData = fs.writeFileSync(
       './data/categories.json',
@@ -104,6 +113,26 @@ app
       data: foundCategory,
     })
   })
+
+app.get('/search', (request, response) => {
+  console.log(request.query)
+
+  const savedCategories = fs.readFileSync('./data/categories.json', {
+    encoding: 'utf-8',
+    flag: 'r',
+  })
+
+  const saveCategoriesArrayObject = JSON.parse(savedCategories)
+
+  const foundCategory = saveCategoriesArrayObject.filter(
+    (category) => category.name == request.query.value
+  )
+
+  response.json({
+    status: 'success',
+    data: foundCategory,
+  })
+})
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`)
