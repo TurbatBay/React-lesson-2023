@@ -125,7 +125,7 @@ app.get('/search', (request, response) => {
   const saveCategoriesArrayObject = JSON.parse(savedCategories)
 
   const foundCategory = saveCategoriesArrayObject.filter(
-    (category) => category.name == request.query.value
+    (category) => category.name.includes(request.query.value) //INCLUDES eer ch hiij bolno == geerch hiij bolno ****** "category.name == request.query.value" ********
   )
 
   response.json({
