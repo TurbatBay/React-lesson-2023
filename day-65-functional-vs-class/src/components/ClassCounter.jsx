@@ -1,5 +1,5 @@
 import React from 'react'
-class ClassCounter extends React.Component {
+class Component extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -7,26 +7,15 @@ class ClassCounter extends React.Component {
     }
     this.increase = this.increase.bind(this)
   }
-
   increase() {
     this.setState({ count: this.state.count + 1 })
   }
-
-  componentDidMount() {
-    console.log('component mounted')
-  }
-  componentWillUnMount() {
-    console.log('component unmounted')
-  }
-
   render() {
     return (
       <div style={{ margin: '50px' }}>
-        <h2>{this.state.count}</h2>
+        <h2> {this.state.count}</h2>
         <button onClick={this.increase}>Add</button>
       </div>
     )
   }
 }
-
-export { ClassCounter }
