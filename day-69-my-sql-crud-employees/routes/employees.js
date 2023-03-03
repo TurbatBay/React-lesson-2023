@@ -28,7 +28,7 @@ emp_router.delete('/employee', async (request, response) => {
   const result = await fireEmployee(body.empNo)
   response.status(200).send(result)
 })
-
+//create
 emp_router.post('/employee', async (request, response) => {
   //   const result = await hireEmployee()
   const { birthDate, firstName, lastName, gender, hireDate } = request.body

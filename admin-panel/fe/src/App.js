@@ -1,48 +1,49 @@
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import Users from "./pages/Users";
-import Navbar from "./components/Navbar";
-import Aside from "./components/Aside";
-import NewUser from "./pages/NewUser";
-import { useState } from "react";
-import Box from "@mui/material/Box";
-import Home from "./pages/Home";
-import Products from "./pages/Products";
-import NewProducts from "./pages/NewProducts";
+import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import Users from './pages/Users'
+import Navbar from './components/Navbar'
+import Aside from './components/Aside'
+import NewUser from './pages/NewUser'
+import { useState } from 'react'
+import Box from '@mui/material/Box'
+import Home from './pages/Home'
+import Products from './pages/Products'
+import NewProducts from './pages/NewProducts'
+import Roles from './pages/Roles'
 
 function App() {
-  const [isUpdate, setIsUpdate] = useState(false);
-  const [productUpdate, setProductUpdate] = useState(false);
+  const [isUpdate, setIsUpdate] = useState(false)
+  const [productUpdate, setProductUpdate] = useState(false)
   const [currentUser, setCurrentUser] = useState({
-    firstname: "",
-    lastname: "",
-    phoneNumber: "",
-    email: "",
-    password: "",
+    firstname: '',
+    lastname: '',
+    phoneNumber: '',
+    email: '',
+    password: '',
     checkbox: false,
-    radio: "",
-    imgURL: "",
-  });
+    radio: '',
+    imgURL: '',
+  })
   const [currentProducts, setCurrentProducts] = useState({
-    imgURL: "",
-    title: "",
-    subtitle: "",
-    price: "",
-    discount: "",
-    description1: "",
-    description2: "",
-    code: "",
-    hashtag: "",
-    technology: "",
-    rating: "",
-  });
+    imgURL: '',
+    title: '',
+    subtitle: '',
+    price: '',
+    discount: '',
+    description1: '',
+    description2: '',
+    code: '',
+    hashtag: '',
+    technology: '',
+    rating: '',
+  })
 
   return (
-    <div className="App">
+    <div className='App'>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path='/' element={<Home />} />
         <Route
-          path="/users"
+          path='/users'
           element={
             <Users
               isUpdate={isUpdate}
@@ -53,7 +54,7 @@ function App() {
           }
         />
         <Route
-          path="/new"
+          path='/new'
           element={
             <NewUser
               isUpdate={isUpdate}
@@ -64,7 +65,7 @@ function App() {
           }
         />
         <Route
-          path="/products"
+          path='/products'
           element={
             <Products
               currentProducts={currentProducts}
@@ -75,7 +76,7 @@ function App() {
           }
         />
         <Route
-          path="/newProducts"
+          path='/newProducts'
           element={
             <NewProducts
               currentProducts={currentProducts}
@@ -85,13 +86,24 @@ function App() {
             />
           }
         />
+        <Route
+          path='roles'
+          element={
+            <Roles
+              isUpdate={isUpdate}
+              setIsUpdate={setIsUpdate}
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+            />
+          }
+        />
       </Routes>
       {/* </Box> */}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
 
 // npm install @mui/material @emotion/react @emotion/styled
 // npm install @mui/x-data-grid
