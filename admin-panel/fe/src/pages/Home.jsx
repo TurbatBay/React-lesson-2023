@@ -77,6 +77,14 @@ export default function ClippedDrawer() {
                 <ListItemText primary={'Products'} />
               </ListItemButton>
             </ListItem>
+            <ListItem key={'Role'} disablePadding>
+              <ListItemButton to={'/roles'}>
+                <ListItemIcon>
+                  <LocalGroceryStoreIcon />
+                </ListItemIcon>
+                <ListItemText primary={'Role'} />
+              </ListItemButton>
+            </ListItem>
           </List>
           <Divider />
           <List>
