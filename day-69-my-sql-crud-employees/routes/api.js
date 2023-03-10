@@ -1,29 +1,66 @@
-import express from 'express'
+import express, { response } from 'express'
 const apiRouter = express.Router()
-
 import { getPopularCategories } from '../services/category-services.js'
-import { getChildrenMenus, getParentMenus } from '../services/menus-services.js'
+import { getChildrenMenus } from '../services/menus-services.js'
+import { search, getAllProducts } from '../services/product-services.js'
+// import { getChildrenMenus, getParentMenus } from '../services/menus-service.js'
+
 apiRouter.get('/popular', async (request, response) => {
   const result = await getPopularCategories()
   response.status(200).send(result)
 })
 
-apiRouter.get('/menus', async (request, response) => {
+apiRouter.get('/products', async (request, response) => {
+  const result = await getAllProducts()
+  response.status(200).send(result)
+})
+apiRouter.get('/search', async (request, response) => {
+  const keyword = request.query.keyword
+  const result = await search(keyword)
+  response.status(200).send(result)
+})
+apiRouter.get('/menus', async (request, resposne) => {
   const parentMenus = await getParentMenus()
-  console.log(parentMenus)
-
   await Promise.all(
     parentMenus.map(async (parent) => {
       const children = await getChildrenMenus(parent.id)
-      console.log(children)
       parent.children = children
       return parent
     })
   )
 
-  response.status(200).send([])
+  response.status(200).send(parentMenus)
 })
 export default apiRouter
+
+// import express from 'express'
+// const apiRouter = express.Router()
+
+// import { getPopularCategories } from '../services/category-services.js'
+// import { getChildrenMenus, getParentMenus } from '../services/menus-services.js'
+// apiRouter.get('/popular', async (request, response) => {
+//   const result = await getPopularCategories()
+//   response.status(200).send(result)
+// })
+
+// apiRouter.get('/menus', async (request, response) => {
+//   const parentMenus = await getParentMenus()
+//   console.log(parentMenus)
+
+//   await Promise.all(
+//     parentMenus.map(async (parent) => {
+//       const children = await getChildrenMenus(parent.id)
+//       console.log(children)
+//       parent.children = children
+//       return parent
+//     })
+//   )
+
+//   response.status(200).send([])
+// })
+// export default apiRouter
+
+// *************************************************************************************************************************
 
 // import express, { application } from 'express'
 // const emp_router = express.Router()
