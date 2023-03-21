@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 const apiRouter = require('./routes/api')
 const PORT = 8080
 const MONGO_CONNECTION_STRING =
-  'mongodb+srv://MongoTuru:7IKP4mQadrfYFsa8@turumongo.pfftwk3.mongodb.net/test' //ene cloud deer haana bairlahiig zaaj ugnu (test dotor mini data orson bga)
+  'mongodb+srv://MongoTuru:FiB5EOYzWksXP4S7@turumongo.pfftwk3.mongodb.net/test' //ene cloud deer haana bairlahiig zaaj ugnu (test dotor mini data orson bga)
 const app = express()
 
 app.use(express.json())
@@ -21,5 +21,10 @@ app.get('/', (request, response) => {
 })
 
 app.listen(PORT, () => {
+  mongoose
+    .connect(MONGO_CONNECTION_STRING)
+    .then(() => console.log('Database connected successfully'))
+    .catch((error) => console.error(error))
+
   console.log(`Express Application is running on http://localhost:${PORT}`)
 })
