@@ -1,28 +1,30 @@
-console.log('Day 81 - INSERT/UPDATE/DELETE MANY')
+console.log('Day 81 - Insert Many/Update Many and Delete many')
 
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
-const Todo = require('./models/Todo')
 const todoRouter = require('./routes/todo-routes')
-const app = express()
-const PORT = 8081
 const categoryRouter = require('./routes/category-routes')
+
+const app = express()
+const PORT = 8080
+
 const MONGO_CONNECTION_STRING =
   'mongodb+srv://MongoTuru:helloworld@turumongo.pfftwk3.mongodb.net/test'
+
 app.use(express.json())
 app.use(cors())
-
-app.get('/', (request, response) => {
-  response.send('<h1>Day 81 - INSERT/UPDATE/DELETE MANY</h1>')
-})
 app.use('/todo', todoRouter)
 app.use('/category', categoryRouter)
+
+app.get('/', (request, response) => {
+  response.send('<h1>Day - 81: Insert/Update/Delete Many</h1>')
+})
+
 app.listen(PORT, () => {
   mongoose
     .connect(MONGO_CONNECTION_STRING)
-    .then(() => console.log('Database connected successfully'))
+    .then(() => console.log('Database connected succesfully'))
     .catch((error) => console.error(error))
-
   console.log(`Express is running on listening on http://localhost:${PORT}`)
 })

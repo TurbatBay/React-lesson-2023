@@ -3,7 +3,7 @@ const Todo = require('../models/Todo')
 const todoRouter = express.Router()
 
 todoRouter.get('/list', async (request, response) => {
-  const result = await Todo.find({})
+  const result = await Todo.find({}).populate('category')
 
   response.status(200).json({
     data: result,
@@ -13,7 +13,7 @@ todoRouter.get('/list', async (request, response) => {
 todoRouter.post('/create', async (request, response) => {
   const body = request.body
   const todo = await Todo.create(body)
-  const result = await (await Todo.create(body)).populate('category')
+  const result = await todo.populate('category')
 
   response.status(200).json({
     data: result,
@@ -22,14 +22,12 @@ todoRouter.post('/create', async (request, response) => {
 
 todoRouter.put('/update', async (request, response) => {
   const body = request.body
-  console.log(body[0].checked)
-  console.log(body[1].checked)
-  // const result = await Todo.updateMany(body[0])
 
   const result = await Todo.updateMany(
     { name: body[1].name },
     { $set: { checked: body[0].checked } }
   )
+
   response.status(200).json({
     data: result,
   })
@@ -37,9 +35,11 @@ todoRouter.put('/update', async (request, response) => {
 
 todoRouter.delete('/delete', async (request, response) => {
   const body = request.body
+
   const result = await Todo.deleteMany(body)
+
   response.status(200).json({
-    data: [],
+    data: result,
   })
 })
 

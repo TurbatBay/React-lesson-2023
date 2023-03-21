@@ -1,55 +1,31 @@
-POST http://localhost:8081/create HTTP/1.1
+POST http://localhost:8080/category/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Washing"
+}
+
+
+
+###
+PUT http://localhost:8080/update HTTP/1.1
 Content-Type: application/json
 
 [
-    {
-        "name": "Washing Dishes",
-        "checked": false
-    },
-    {
-        "name": "Groceries",
-        "checked": true
-    },
-    {
-        "name": "Washing Kids",
-        "checked": false
-    }
+    {"checked": true},
+    {"name": "Bathing Kids"}
 ]
-
-
-###
-
-PUT http://localhost:8081/update HTTP/1.1
-Content-Type: application/json
-
-[
-    {
-        
-        "checked": true
-    },
-    {
-        "name": "Groceries"
-    }
-    
-]
-
-
+   
 
 ###
-
-
-GET http://localhost:8081/category/list HTTP/1.1
+GET http://localhost:8080/category/list HTTP/1.1
 Content-Type: application/json
 
 
-
-
 ###
-
-DELETE http://localhost:8081/delete HTTP/1.1
+DELETE http://localhost:8080/delete HTTP/1.1
 Content-Type: application/json
 
-
-{"checked": false}
-
-###
+{
+    "checked": false 
+}
