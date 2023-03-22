@@ -3,8 +3,7 @@ const express = require('express')
 
 // This line imports the CORS library, which is used to enable cross-origin requests
 const cors = require('cors')
-
-// This line imports the Multer library, which is used to handle file uploads
+const fs = require('fs')
 const multer = require('multer')
 
 // This line sets the port that the server will listen on
@@ -24,10 +23,23 @@ const storage = multer.diskStorage({
 })
 const upload = multer({ storage: storage })
 
+// filenames = fs.readdirSync('./uploads')
+
+// console.log('\nCurrent directory filenames:')
+// filenames.forEach((file) => {
+//   console.log(`localhost:8080/uploads/${file}`)
+// })
+
+// fileObjs = fs.readdirSync('./uploads', { withFileTypes: true })
+
+// console.log('\nCurrent directory files:')
+// fileObjs.forEach((file) => {
+//   console.log(file)
+// })
+
 // This line sets up a route to serve files from the /uploads directory
 app.use('/uploads', express.static('uploads'))
 
-// This line enables CORS for all routes
 app.use(cors())
 
 // This line enables parsing of JSON request bodies
@@ -40,8 +52,14 @@ app.get('/', (request, response) => {
 
 // This route handles file uploads
 app.post('/fileUpload', upload.single('image'), (request, response, next) => {
+  const imgs = []
+  fs.readdirSync('./uploads/').forEach((file) => [console.log(file)])
+  console.log(file)
+  const fileUrl = `localhost:8080/uploads/${file}`
+  imgs.push(fileUrl)
+
   response.json({
-    data: [],
+    data: imgs,
   })
 })
 // This line starts the server listening on the specified port
