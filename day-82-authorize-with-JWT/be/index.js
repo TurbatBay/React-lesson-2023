@@ -5,11 +5,11 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const adminRouter = require('./routes/Admin-api')
 const apiRouter = require('./routes/Api')
+require('dotenv').config()
 
 const app = express()
-const PORT = 8080
-const MONGO_CONNECTION_STRING =
-  'mongodb+srv://MongoTuru:helloworld@turumongo.pfftwk3.mongodb.net/test'
+const PORT = process.env.PORT
+const MONGO_CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING
 app.use(express.json())
 app.use(cors())
 app.use('/admin', adminRouter)
