@@ -27,3 +27,5 @@ export const searchTheaters = async (req: Request, res: Response) => {
         res.status(404).json({ data: [] });
     }
 }
+
+//test
