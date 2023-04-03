@@ -28,4 +28,4 @@ export const searchTheaters = async (req: Request, res: Response) => {
     }
 }
 
-//test123
+//test123123
