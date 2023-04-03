@@ -1,8 +1,7 @@
-// const express = require('express')
+
 import express, { Express, Request, Response } from "express"
 import mongoose from "mongoose"
-// const mongoose = require('mongoose')
-// const cors = require('cors')
+import theaterRouter from "./routes/Theaters.api"
 require('dotenv').config()
 const PORT = process.env.PORT
 const MONGO_CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb+srv://MongoTuru:helloworld@turumongo.pfftwk3.mongodb.net/sample_mflix"
@@ -24,8 +23,9 @@ const app: Express = express()
 app.use(express.json())
 
 app.get('/', (request: Request, response: Response) => {
-    response.send(`<h1>Day - 90 Express Typescript</h1><h2>${sheeps}</h2>`)
+    response.send(`<h1>Day - 90 Express Typescript</h1>`)
 })
+app.use("/theaters", theaterRouter)
 
 app.listen(PORT, () => {
     mongoose
