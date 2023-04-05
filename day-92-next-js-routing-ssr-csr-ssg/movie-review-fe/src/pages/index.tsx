@@ -1,5 +1,6 @@
 import React from "react"
 import Link from "next/link"
+import styles from '@/styles/Home.module.css'
 //BACK END
 export async function getServerSideProps() {
   const theaterRequest = await fetch('http://localhost:8282/theaters/list')
@@ -18,7 +19,7 @@ export default function Home(props:any):JSX.Element {
   const side = typeof window ? "client" : "server"
 
   return (
-    <>
+    <div className={styles.main}>
       <div>Welcome, </div>
       <div>You're currently on the {side}- side</div>
       <Link href="/about">About Page</Link>
@@ -28,6 +29,6 @@ export default function Home(props:any):JSX.Element {
       <Link href={{pathname: "/posts/2020-12-12/first",
                     query: {date: "2020-12-12", slug: "first"}
     }}>Posts Page</Link>
-    </>
+    </div>
   )
 }
