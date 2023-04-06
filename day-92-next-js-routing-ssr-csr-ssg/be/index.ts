@@ -3,22 +3,13 @@ import express, { Express, Request, Response } from "express"
 import mongoose from "mongoose"
 import theaterRouter from "./routes/Theaters.api"
 import commentRouter from "./routes/Comments.api"
+import moviesRouter from "./routes/Movies.api"
 const cors = require('cors')
 
 require('dotenv').config()
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 8282
 const MONGO_CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb+srv://MongoTuru:helloworld@turumongo.pfftwk3.mongodb.net/sample_mflix"
 
-// let name: string = 'John'
-// let phoneNumber: number = 99119911
-// let isMarried: boolean = false
-let sheeps: Array<string> = ["1", "2", "3"]
-// let sheep: string[] = ["sheep1", "sheep2", "sheep3"]
-// let sheepObject: { name: string; age: number } = {
-//     name: "sheep1",
-//     age: 1,
-// }
-// sheepObject.name = "sheep2 "
 
 const app: Express = express()
 
@@ -29,6 +20,7 @@ app.get('/', (request: Request, response: Response) => {
 })
 app.use("/theaters", theaterRouter)
 app.use('/comments', commentRouter)
+app.use('/movies', moviesRouter)
 
 app.listen(PORT, () => {
     mongoose

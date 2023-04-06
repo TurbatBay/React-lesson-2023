@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import styles from '@/styles/nav.module.css'
 import React from 'react'
 import Link from 'next/link'
+import Movies from './movies'
 const NavigationPage = (): JSX.Element => {
     const [navigate, setNavigate] = React.useState(false)
 
@@ -36,6 +37,7 @@ const NavigationPage = (): JSX.Element => {
             
             {/* <button onClick={() => setNavigate(true)}>Contact</button> */}
         </div>
+        
     </div>
   )
 }
