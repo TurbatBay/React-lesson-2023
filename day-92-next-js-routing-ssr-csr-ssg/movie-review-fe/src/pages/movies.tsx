@@ -85,11 +85,14 @@ interface IMovie {
       <div key={index} className='flex flex-col rounded-lg shadow-md bg-white overflow-hidden'>
         <div className='relative'>
           <img src={!movie.poster ? "/zomboiessd.png" : movie.poster} alt={movie.title} className='object-cover h-96 w-full rounded-t-lg' />
-          <h2 className="text-2xl font-bold mb-2">{movie.title}</h2>
           <div className='flex items-center'>
-          <img src="/rotten-tomatoes-rating-icons-1@2x.png" alt="" className='object-cover h-10 w-10 rounded-t-lg'/>
-          <p className="text-gray-500">{`: ${movie.tomatoes.viewer.meter ? movie.tomatoes.viewer.meter : '0'}%`}</p>
+            <img src="/rotten-tomatoes-rating-icons-1@2x.png" alt="" className='object-cover h-5 w-5 rounded-t-lg'/>
+            <p className="text-black-700  ">{`: ${movie.tomatoes.viewer.meter ? movie.tomatoes.viewer.meter : '0'}%`}</p>
           </div>
+          <h2 className="font-size: .875rem;
+            line-height: 1.4;
+            margin-bottom: 0.625rem;">{movie.title}
+            </h2>
           
           
         </div>
