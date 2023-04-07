@@ -79,16 +79,27 @@ interface IMovie {
       };
       return (
         <div className='box-border max-w-7xl mx-auto'>
-            <h1>Movie list</h1>
-        <div className='grid grid-rows-4 grid-flow-col gap-4'>
-            {movies.map((movie: IMovie, index) => (
-              <div>
-               <img src={movie.poster} alt="" className='w-2/6'/>
-               <h2>{movie.title}</h2>
-               </div>
-            ))}
+  <h1 className="text-4xl font-bold mb-6">Movie list</h1>
+  <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
+    {movies.map((movie: IMovie, index) => (
+      <div key={index} className='flex flex-col rounded-lg shadow-md bg-white overflow-hidden'>
+        <div className='relative'>
+          <img src={!movie.poster ? "/zomboiessd.png" : movie.poster} alt={movie.title} className='object-cover h-96 w-full rounded-t-lg' />
+          <h2 className="text-2xl font-bold mb-2">{movie.title}</h2>
+          <div className='flex items-center'>
+          <img src="/rotten-tomatoes-rating-icons-1@2x.png" alt="" className='object-cover h-10 w-10 rounded-t-lg'/>
+          <p className="text-gray-500">{`: ${movie.tomatoes.viewer.meter ? movie.tomatoes.viewer.meter : '0'}%`}</p>
+          </div>
+          
+          
         </div>
-        </div>
+        
+      </div>
+    ))}
+  </div>
+</div>
+
+
       );
   }
   
